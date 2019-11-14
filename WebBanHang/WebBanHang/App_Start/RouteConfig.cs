@@ -37,24 +37,24 @@ namespace WebBanHang
                 url: "lien-he",
                 defaults: new { controller = "Page", action = "LienHe" }
             );
-            #endregion
+          
 
-            #region Accout
             // route trang Đăng nhập
             // URL: /dang-nhap
             routes.MapRoute(
-                name: "account.dang_nhap",
+                name: "page.dang_nhap",
                 url: "dang-nhap",
-                defaults: new { controller = "Account", action = "DangNhap" }
+                defaults: new { controller = "Page", action = "DangNhap" }
             );
 
             // route trang Đăng ký
             // URL: /dang-ky
             routes.MapRoute(
-                name: "account.dang_ky",
+                name: "page.dang_ky",
                 url: "dang-ky",
-                defaults: new { controller = "Account", action = "DangKy" }
+                defaults: new { controller = "Page", action = "DangKy" }
             );
+
             #endregion
 
             // Route mặc định của Trang web

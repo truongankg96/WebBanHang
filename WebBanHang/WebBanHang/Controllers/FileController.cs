@@ -15,10 +15,11 @@ namespace WebBanHang.Controllers
             return View();
         }
 
-        public FileResult Download(string _FileName)
+        // Action Download file
+        public FileResult Download(string fileName)
         {
-            var _NoiLuuFileDownload = "~/DocumentFile/" + _FileName;
-            return File(_NoiLuuFileDownload, "application/force-download", Path.GetFileName(_NoiLuuFileDownload));
+            var FileVirtualPath = "~/DocumentFiles/" + fileName;
+            return File(FileVirtualPath, "application/force-download", Path.GetFileName(FileVirtualPath));
         }
     }
 }

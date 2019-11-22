@@ -5,21 +5,21 @@ using System.Web;
 
 namespace WebBanHang.EF
 {
-    class DataProvider
+    public class DataProvider
     {
         private static DataProvider _Ins;
 
-        internal static DataProvider Ins 
+        public static DataProvider Ins
         {
             get
             {
                 if (_Ins == null)
                 {
                     _Ins = new DataProvider();
-                };
+                }
                 return _Ins;
             }
-            set => _Ins = value; 
+            set => _Ins = value;
         }
 
         public QuanLyBanHangEntities DB;

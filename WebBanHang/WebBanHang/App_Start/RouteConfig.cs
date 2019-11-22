@@ -13,7 +13,6 @@ namespace WebBanHang
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            #region Page
             // route trang chủ
             // URL: /
             routes.MapRoute(
@@ -37,7 +36,6 @@ namespace WebBanHang
                 url: "lien-he",
                 defaults: new { controller = "Page", action = "LienHe" }
             );
-          
 
             // route trang Đăng nhập
             // URL: /dang-nhap
@@ -55,7 +53,32 @@ namespace WebBanHang
                 defaults: new { controller = "Page", action = "DangKy" }
             );
 
-            #endregion
+            // route trang Sản phẩm chi tiết
+            // URL: /dang-ky
+            routes.MapRoute(
+                name: "product.chitiet",
+                url: "sanpham-chitiet",
+                defaults: new { controller = "Product", action = "ProductDetail" }
+            );
+
+            // ------- ROUTE dành cho BACKEND -------
+            // route trang Dashboard
+            // URL: /admin/dashboard
+            routes.MapRoute(
+                name: "admin.page.dashboard",
+                url: "admin/dashboard", //https://domain.com/admin/dashboard
+                defaults: new { controller = "Dashboard", action = "Index" },
+                namespaces: new string[] { "WebBanHang.Controllers.Backend" }
+            );
+
+            // route trang Sản phẩm
+            // URL: /dang-ky
+            routes.MapRoute(
+                name: "admin.products.index",
+                url: "admin/products", //https://domain.com/admin/dashboard
+                defaults: new { controller = "Products", action = "Index" },
+                namespaces: new string[] { "WebBanHang.Controllers.Backend" }
+            );
 
             // Route mặc định của Trang web
             // URL: /

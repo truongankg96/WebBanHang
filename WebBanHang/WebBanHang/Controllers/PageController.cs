@@ -11,13 +11,16 @@ namespace WebBanHang.Controllers
     {
         public ActionResult Index()
         {
-            //List<products> lstProduct = new List<products>();
+            List<products> lstProduct = new List<products>();
 
             // Lấy dữ liệu danh sách Sản phẩm
-            //lstProduct = DataProvider.Ins.DB.products.ToList(); // SELECT * FROM products
+            using (QuanLyBanHangEntities context = new QuanLyBanHangEntities())
+            {
+                lstProduct = context.products.ToList(); // SELECT * FROM products
+            }
 
             // Truyền dữ liệu từ Controller -> View thông qua ViewBag
-            ViewBag.DanhSachSanPham = DataProvider.Ins.DB.products.ToList();
+            ViewBag.DanhSachSanPham = lstProduct;
 
             return View();
         }

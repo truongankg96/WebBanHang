@@ -9,8 +9,8 @@ namespace WebBanHang.EF
     {
         private static DataProvider _Ins;
 
-        public static DataProvider Ins
-        {
+        public static DataProvider Ins 
+        { 
             get
             {
                 if (_Ins == null)
@@ -18,8 +18,8 @@ namespace WebBanHang.EF
                     _Ins = new DataProvider();
                 }
                 return _Ins;
-            }
-            set => _Ins = value;
+            } 
+            private set => _Ins = value; 
         }
 
         public QuanLyBanHangEntities DB;

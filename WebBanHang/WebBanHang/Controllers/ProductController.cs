@@ -19,9 +19,8 @@ namespace WebBanHang.Controllers
         public ActionResult ProductDetail(int idProduct)
         {
             products product = null;
-
             // Lấy dữ liệu Sản phẩm bởi idProduct
-            product = DataProvider.Ins.DB.products.Where(x => x.id == idProduct).FirstOrDefault();
+            product = DataProvider.Ins.DB.products.Where(p => p.id == idProduct).FirstOrDefault();
 
             // Truyền dữ liệu từ Controller sang View
             ViewBag.SanPham = product;

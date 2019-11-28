@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\dnpcuong\learning.nentang.vn-asp.net\WebBanHang\WebBanHang\EF\QuanLyBanHangEF.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\SourceCode\Github\WebBanHang_ASP.Net\WebBanHang\WebBanHang\EF\QuanLyBanHangEF.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

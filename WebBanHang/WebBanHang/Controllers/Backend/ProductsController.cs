@@ -14,12 +14,14 @@ namespace WebBanHang.Controllers.Backend
     public class ProductsController : Controller
     {
         private QuanLyBanHangEntities db = new QuanLyBanHangEntities();
+
         // GET: Products
         public ActionResult Index()
         {
             return View("~/Views/Backend/Products/Index.cshtml", db.products.ToList());
         }
 
+        #region Hiển Thị
         // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,7 +36,9 @@ namespace WebBanHang.Controllers.Backend
             }
             return View(products);
         }
+        #endregion 
 
+        #region Thêm mới
         // GET: Products/Create
         public ActionResult Create()
         {
@@ -86,7 +90,9 @@ namespace WebBanHang.Controllers.Backend
 
             return View(products);
         }
+        #endregion
 
+        #region Sửa
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -168,7 +174,9 @@ namespace WebBanHang.Controllers.Backend
             }
             return View(products);
         }
+        #endregion
 
+        #region Xóa
         // GET: Products/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -195,6 +203,7 @@ namespace WebBanHang.Controllers.Backend
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        #endregion
 
         protected override void Dispose(bool disposing)
         {

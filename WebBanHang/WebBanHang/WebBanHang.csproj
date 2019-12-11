@@ -232,6 +232,7 @@
     <Content Include="EF\QuanLyBanHangEF.edmx.diagram">
       <DependentUpon>QuanLyBanHangEF.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\WebBanHang20191211064535 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />

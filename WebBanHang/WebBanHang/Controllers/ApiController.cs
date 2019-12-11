@@ -85,6 +85,140 @@ namespace WebBanHang.Controllers
             return Json(_ListDonHang, JsonRequestBehavior.AllowGet);
         }
 
-        
+        [System.Web.Mvc.HttpPost]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                //using (QuanLyBanHangEntities context = new QuanLyBanHangEntities())
+                //{
+                //    products products = context.products.Find(id);
+                //    context.products.Remove(products);
+                //    context.SaveChanges();
+                //}
+               
+                products products = DataProvider.Ins.DB.products.Find(id);
+                DataProvider.Ins.DB.products.Remove(products);
+                DataProvider.Ins.DB.SaveChanges();
+                
+
+
+
+                object result = new
+                {
+                    Code = 200,
+                    Message = "Đã xoá products thành công"
+                };
+
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                object result = new
+                {
+                    Code = 500,
+                    Message = "Đã có lỗi xảy ra " + ex.Message
+                };
+
+                return Json(result);
+            }
+
+        }
+
+            
+        [System.Web.Mvc.HttpPost]
+        public ActionResult Create([FromBody]products products)
+        {
+            try
+            {
+
+                DataProvider.Ins.DB.products.Add(products);
+                DataProvider.Ins.DB.SaveChanges();
+
+
+
+
+                object result = new
+                {
+                    Code = 200,
+                    Message = "Đã xoá products thành công",
+                    CreateObject = products
+                };
+
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                object result = new
+                {
+                    Code = 500,
+                    Message = "Đã có lỗi xảy ra " + ex.Message
+                };
+
+                return Json(result);
+            }
+
+        }
+
+
+        [System.Web.Mvc.HttpPost]
+        public ActionResult Edit(int id, [FromBody]products products)
+        {
+            try
+            {
+
+                products productsEdit = DataProvider.Ins.DB.products.Find(id);
+                if (string.IsNullOrEmpty(products.category))
+                {
+                    productsEdit.category = products.category;
+                }
+                if (string.IsNullOrEmpty(products.description))
+                {
+                    productsEdit.description = products.description;
+                }
+                if (products.discontinued>0)
+                {
+                    productsEdit.discontinued = products.discontinued;
+                }
+                if (string.IsNullOrEmpty(products.image))
+                {
+                    productsEdit.image = products.image;
+                }
+                
+                productsEdit.list_price = products.list_price;
+                productsEdit.minimum_reorder_quantity = products.minimum_reorder_quantity;
+                productsEdit.order_details = products.order_details;
+                productsEdit.product_code = products.product_code;
+                productsEdit.product_name = products.product_name;
+                productsEdit.quantity_per_unit = products.quantity_per_unit;
+                productsEdit.reorder_level = products.reorder_level;
+                productsEdit.standard_cost = products.standard_cost;
+                productsEdit.target_level = products.target_level;
+                //DataProvider.Ins.DB.products.Add(products);
+                DataProvider.Ins.DB.SaveChanges();
+
+
+
+
+                object result = new
+                {
+                    Code = 200,
+                    Message = "Đã xoá products thành công",
+                };
+
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                object result = new
+                {
+                    Code = 500,
+                    Message = "Đã có lỗi xảy ra " + ex.Message
+                };
+
+                return Json(result);
+            }
+
+        }
     }
 }
